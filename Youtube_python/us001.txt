@@ -1,0 +1,6 @@
+USERINFO:us001|AUGUSTINE|Feminin|123456789|augustiine@gmail.com|august-003
+VIDEOS:1
+VID005|miaou|August|sa parle des chats|8|1|0|0|2025-12-18
+LIKES:1
+VID005
+COMMENTS:0

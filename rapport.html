@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé Logique - YouTube Recommander</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-after: always; }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #ff0000;
+            font-size: 28px;
+            margin: 0;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        h2 {
+            color: #ff0000;
+            font-size: 20px;
+            border-left: 4px solid #ff0000;
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #333;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .class-box {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .class-name {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .class-desc {
+            color: #555;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .flow-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .flow-step {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .flow-step:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            background: #cc0000;
+        }
+        
+        @media print {
+            .print-btn { display: none; }
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📄 Imprimer / Sauvegarder en PDF</button>
+    
+    <div class="header">
+        <h1>🎥 YOUTUBE RECOMMANDER</h1>
+        <div class="subtitle">Résumé de la Logique du Système</div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section">
+        <h2>📋 Vue d'Ensemble</h2>
+        <p>
+            <strong>YouTube Recommander</strong> est une application de gestion de vidéos qui permet aux utilisateurs de :
+        </p>
+        <ul>
+            <li>S'inscrire et se connecter (compte standard ou premium)</li>
+            <li>Créer, rechercher et supprimer des vidéos</li>
+            <li>Commenter et liker des vidéos</li>
+            <li>Créer et gérer des chaînes</li>
+            <li>Suivre/ne plus suivre des chaînes</li>
+        </ul>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="section">
+        <h2>🏗️ Architecture du Système</h2>
+        
+        <h3>📦 Modules Principaux</h3>
+        
+        <div class="class-box">
+            <div class="class-name">1. IdGenerator</div>
+            <div class="class-desc">
+                • Génère des identifiants uniques pour les utilisateurs, vidéos, commentaires et chaînes<br>
+                • Format : <span class="code">us001</span>, <span class="code">VID001</span>, <span class="code">COM001</span>, <span class="code">CH001</span><br>
+                • Sauvegarde les compteurs dans <span class="code">counters.dat</span>
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">2. Comments</div>
+            <div class="class-desc">
+                • Représente un commentaire avec : id, auteur, texte, date, likes<br>
+                • Méthodes : créer, afficher, sérialiser/désérialiser
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">3. Video</div>
+            <div class="class-desc">
+                • Contient : id, titre, auteur, description, résolution, date<br>
+                • Statistiques : nb de likes, vues, commentaires<br>
+                • Calcule un <span class="highlight">score de pertinence</span> : (likes × 2) + (commentaires × 5) + (likes des commentaires)
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">4. VideoBd</div>
+            <div class="class-desc">
+                • Gère la liste de toutes les vidéos<br>
+                • Opérations : ajouter, rechercher, supprimer, liker, afficher
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">5. User</div>
+            <div class="class-desc">
+                • Informations : id, nom, genre, téléphone, email, mot de passe<br>
+                • Historique : vidéos créées, vidéos likées, commentaires<br>
+                • Sauvegarde dans des fichiers <span class="code">us001.txt</span>
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">6. PremiumUser (hérite de User)</div>
+            <div class="class-desc">
+                • Ajoute : option de souscription payante<br>
+                • 3 options : 2,05$/mois, 5,57$/mois, 12,89$/mois<br>
+                • Fichiers marqués avec <span class="code">USERTYPE:PREMIUM</span>
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">7. UserBd</div>
+            <div class="class-desc">
+                • Gère tous les utilisateurs<br>
+                • Connexion/déconnexion<br>
+                • Charge les utilisateurs depuis les fichiers<br>
+                • Index dans <span class="code">user_index.txt</span>
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">8. Channel</div>
+            <div class="class-desc">
+                • Représente une chaîne YouTube<br>
+                • Contient : id, nom, propriétaire, followers, vidéos
+            </div>
+        </div>
+
+        <div class="class-box">
+            <div class="class-name">9. ChannelBd</div>
+            <div class="class-desc">
+                • Gère toutes les chaînes<br>
+                • Opérations : créer, rechercher, suivre/ne plus suivre, poster/supprimer vidéos
+            </div>
+        </div>
+    </div>
+
+    <!-- FLUX UTILISATEUR -->
+    <div class="section page-break">
+        <h2>🔄 Flux d'Utilisation</h2>
+        
+        <h3>1️⃣ Inscription</h3>
+        <div class="flow-box">
+            <div class="flow-step">L'utilisateur choisit : Standard ou Premium</div>
+            <div class="flow-step">Saisit : nom, genre, téléphone, email, mot de passe</div>
+            <div class="flow-step">Si Premium : choisit une option de paiement</div>
+            <div class="flow-step">Un ID unique est généré (ex: us001)</div>
+            <div class="flow-step">Les données sont sauvegardées dans un fichier texte</div>
+            <div class="flow-step">L'utilisateur accède au menu principal</div>
+        </div>
+
+        <h3>2️⃣ Création de Vidéo</h3>
+        <div class="flow-box">
+            <div class="flow-step">L'utilisateur saisit : titre, description, résolution</div>
+            <div class="flow-step">Un ID vidéo est généré (ex: VID001)</div>
+            <div class="flow-step">La vidéo est ajoutée à VideoBd ET au profil utilisateur</div>
+            <div class="flow-step">Option de liker immédiatement</div>
+            <div class="flow-step">Option d'ajouter un commentaire</div>
+        </div>
+
+        <h3>3️⃣ Connexion</h3>
+        <div class="flow-box">
+            <div class="flow-step">Saisie email + mot de passe</div>
+            <div class="flow-step">Recherche d'abord en mémoire (liste chargée)</div>
+            <div class="flow-step">Si non trouvé : recherche dans les fichiers us*.txt</div>
+            <div class="flow-step">Si Premium sans souscription : demande activation</div>
+            <div class="flow-step">Accès au menu principal</div>
+        </div>
+
+        <h3>4️⃣ Gestion des Chaînes</h3>
+        <div class="flow-box">
+            <div class="flow-step">Créer une chaîne avec nom et propriétaire</div>
+            <div class="flow-step">Rechercher une chaîne par nom</div>
+            <div class="flow-step">Suivre : incrémente le compteur de followers</div>
+            <div class="flow-step">Poster vidéos directement dans la chaîne</div>
+            <div class="flow-step">Supprimer vidéos par ID</div>
+        </div>
+    </div>
+
+    <!-- PERSISTANCE -->
+    <div class="section">
+        <h2>💾 Système de Persistance</h2>
+        
+        <h3>📁 Structure des Fichiers</h3>
+        <table>
+            <tr>
+                <th>Fichier</th>
+                <th>Contenu</th>
+            </tr>
+            <tr>
+                <td><span class="code">counters.dat</span></td>
+                <td>Compteurs des IDs (binaire pickle)</td>
+            </tr>
+            <tr>
+                <td><span class="code">us001.txt</span></td>
+                <td>Données utilisateur standard</td>
+            </tr>
+            <tr>
+                <td><span class="code">us002.txt</span></td>
+                <td>Données utilisateur premium (avec USERTYPE:PREMIUM)</td>
+            </tr>
+            <tr>
+                <td><span class="code">user_index.txt</span></td>
+                <td>Index : us001|email@example.com</td>
+            </tr>
+        </table>
+
+        <h3>📝 Format de Sauvegarde Utilisateur</h3>
+        <div class="flow-box" style="background: #e3f2fd; border-color: #2196f3;">
+            <div class="flow-step">USERTYPE:PREMIUM (si applicable)</div>
+            <div class="flow-step">USERINFO:us001|Nom|Genre|Tel|Email|Password|Option</div>
+            <div class="flow-step">VIDEOS:2 → Liste des vidéos créées (sérialisées)</div>
+            <div class="flow-step">LIKES:3 → Liste des IDs de vidéos likées</div>
+            <div class="flow-step">COMMENTS:1 → Liste des commentaires (sérialisés)</div>
+        </div>
+    </div>
+
+    <!-- FONCTIONNALITÉS CLÉS -->
+    <div class="section">
+        <h2>⭐ Fonctionnalités Clés</h2>
+        
+        <h3>🎯 Score de Pertinence</h3>
+        <p>
+            Chaque vidéo calcule automatiquement sa pertinence :
+        </p>
+        <div class="flow-box" style="background: #f3e5f5; border-color: #9c27b0;">
+            <strong>Formule :</strong><br>
+            Score = (Likes vidéo × 2) + (Nb commentaires × 5) + (Σ likes des commentaires)
+        </div>
+        
+        <table>
+            <tr>
+                <th>Score</th>
+                <th>Statut</th>
+            </tr>
+            <tr>
+                <td>> 100</td>
+                <td>Très Pertinente (Incontournable)</td>
+            </tr>
+            <tr>
+                <td>> 50</td>
+                <td>Pertinente (Populaire)</td>
+            </tr>
+            <tr>
+                <td>> 10</td>
+                <td>Intéressante</td>
+            </tr>
+            <tr>
+                <td>≤ 10</td>
+                <td>Peu de retours (Nouvelle ou niche)</td>
+            </tr>
+        </table>
+
+        <h3>🔐 Gestion Premium</h3>
+        <ul>
+            <li>Différenciation Standard / Premium</li>
+            <li>Paiement par carte bancaire (simulation)</li>
+            <li>3 paliers de prix</li>
+            <li>Vérification à la connexion</li>
+        </ul>
+    </div>
+
+    <!-- POINTS TECHNIQUES -->
+    <div class="section">
+        <h2>🔧 Points Techniques Importants</h2>
+        
+        <h3>✅ Résolution d'Importations Circulaires</h3>
+        <p>
+            Les imports de <span class="code">Video</span> et <span class="code">Comments</span> sont effectués 
+            <span class="highlight">à l'intérieur des méthodes</span> <span class="code">load_from_file()</span> 
+            pour éviter les dépendances circulaires au chargement des modules.
+        </p>
+
+        <h3>✅ Sérialisation</h3>
+        <p>
+            Toutes les classes ont des méthodes <span class="code">serialize()</span> et 
+            <span class="code">deserialize()</span> pour la sauvegarde/chargement.
+        </p>
+
+        <h3>✅ Héritage</h3>
+        <p>
+            <span class="code">PremiumUser</span> hérite de <span class="code">User</span> → réutilisation du code
+        </p>
+
+        <h3>✅ Gestion d'Erreurs</h3>
+        <p>
+            Try-catch pour les lectures/écritures fichiers et conversions de types.
+        </p>
+    </div>
+
+    <!-- MENU -->
+    <div class="section page-break">
+        <h2>📱 Structure des Menus</h2>
+        
+        <h3>Menu Principal</h3>
+        <ul>
+            <li>1 - S'inscrire (Standard ou Premium)</li>
+            <li>2 - Se connecter</li>
+            <li>3 - Se déconnecter</li>
+            <li>0 - Quitter</li>
+        </ul>
+
+        <h3>Menu Utilisateur (après connexion)</h3>
+        <ul>
+            <li>1 - Poster une vidéo</li>
+            <li>2 - Rechercher une vidéo</li>
+            <li>3 - Supprimer une vidéo</li>
+            <li>4 - Créer une chaîne</li>
+            <li>5 - Rechercher une chaîne</li>
+            <li>6 - Suivre une chaîne</li>
+            <li>7 - Arrêter de suivre une chaîne</li>
+            <li>8 - Poster vidéo dans la chaîne</li>
+            <li>9 - Supprimer vidéo de la chaîne</li>
+            <li>10 - Retour au menu principal</li>
+            <li>11 - Afficher mon profil</li>
+            <li>0 - Quitter l'application</li>
+        </ul>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="section">
+        <h2>🎓 Conclusion</h2>
+        <p>
+            Le système <strong>YouTube Recommander</strong> implémente une architecture orientée objet 
+            complète avec :
+        </p>
+        <ul>
+            <li>✅ Séparation claire des responsabilités (classes métier, BD, générateurs)</li>
+            <li>✅ Persistance des données via fichiers texte structurés</li>
+            <li>✅ Héritage pour la gestion Premium</li>
+            <li>✅ Système de scoring pour recommandations</li>
+            <li>✅ Gestion complète du cycle de vie : inscription → création contenu → interactions</li>
+        </ul>
+        
+        <div class="flow-box" style="background: #e8f5e9; border-color: #4caf50;">
+            <strong>🎯 Objectif atteint :</strong> Simuler un écosystème YouTube simplifié avec 
+            gestion utilisateurs, vidéos, commentaires et chaînes.
+        </div>
+    </div>
+
+    <div class="footer">
+        YouTube Recommander - Documentation Technique<br>
+        Généré le <?php echo date('d/m/Y'); ?>
+    </div>
+
+    <script>
+        // Auto-remplacer la date PHP par JS
+        const footer = document.querySelector('.footer');
+        if (footer) {
+            footer.innerHTML = footer.innerHTML.replace(
+                '<?php echo date(\'d/m/Y\'); ?>',
+                new Date().toLocaleDateString('fr-FR')
+            );
+        }
+    </script>
+</body>
+</html>

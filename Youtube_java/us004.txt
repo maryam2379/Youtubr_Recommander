@@ -1,0 +1,10 @@
+USERTYPE:PREMIUM
+USERINFO:us004|MFOPIT MVU MARYAM|FEMININ|658724106|maryamfopit@gmail.com|maryam-007|OPTION 2 : 5,57$/mois
+VIDEOS:1
+VID003|PYTHON|MARYAM|python l'un des language de programmation le plus aime des informaticiens|4|4|0|0|2025-12-18
+LIKES:1
+VID003
+COMMENTS:3
+COM004|MARYAM|je suis super fan de la video|0|2025-12-18
+COM005|PAUL|j'aime cette video|1|2025-12-18
+COM006|IVANA|super|0|2025-12-18
