@@ -1,5 +1,5 @@
 # Youtubr_Recommander
-📋 Description
+##📋 Description
 
 YouTube Recommander est une application de simulation de plateforme vidéo inspirée de YouTube, développée en Java. Elle permet aux utilisateurs de créer des comptes (standard ou premium), de gérer des vidéos, des chaînes, des commentaires et d'interagir avec du contenu via des likes et des abonnements.
 
@@ -13,7 +13,7 @@ Le système intègre un algorithme de pertinence qui analyse l'engagement des ut
     Utilisateurs Premium : Options de souscription avec 3 formules (2,05/mois,5,57/mois,5,57/mois, 12,89$/mois)
     Persistance des données : Sauvegarde automatique dans des fichiers texte
 
-🎥 Gestion des vidéos
+##🎥 Gestion des vidéos
 
     Création de vidéos : Titre, description, auteur, résolution
     Recherche de vidéos : Par titre
@@ -22,13 +22,13 @@ Le système intègre un algorithme de pertinence qui analyse l'engagement des ut
     Statistiques : Nombre de vues, likes, commentaires
     Score de pertinence : Calcul automatique basé sur l'engagement
 
-💬 Système de commentaires
+##💬 Système de commentaires
 
     Ajout de commentaires : Sur n'importe quelle vidéo
     Likes sur commentaires : Système d'engagement
     Affichage : Liste complète des commentaires avec métadonnées
 
-📺 Gestion des chaînes
+##📺 Gestion des chaînes
 
     Création de chaînes : Avec nom et propriétaire
     Recherche de chaînes
@@ -36,7 +36,7 @@ Le système intègre un algorithme de pertinence qui analyse l'engagement des ut
     Publication de vidéos : Poster des vidéos dans une chaîne
     Statistiques : Nombre d'abonnés, nombre de vidéos
 
-📊 Analyse de pertinence
+##📊 Analyse de pertinence
 
     Score de pertinence : Formule = (Likes × 2) + (Commentaires × 5) + (Likes des commentaires)
     Classification :
@@ -45,7 +45,7 @@ Le système intègre un algorithme de pertinence qui analyse l'engagement des ut
         Intéressante : Score > 10
         Peu de retours : Score ≤ 10
 
-🗂️ Architecture du projet
+##🗂️ Architecture du projet
 
 youtube-recommander/
 │
@@ -71,13 +71,13 @@ youtube-recommander/
 │
 └── youtube.java               # Classe principale avec l'interface utilisateur
 
-🔧 Prérequis
+##🔧 Prérequis
 
     Java JDK : Version 8 ou supérieure
     Système d'exploitation : Windows, macOS, Linux
     Terminal/Invite de commandes : Pour l'exécution
 
-📦 Installation et compilation
+###📦 Installation et compilation
 1️⃣ Cloner ou télécharger le projet
 bash
 
