@@ -46,7 +46,7 @@ Le système intègre un algorithme de pertinence qui analyse l'engagement des ut
         Peu de retours : Score ≤ 10
 
 ## 🗂️ Architecture du projet
-
+```
 youtube-recommander/
 │
 ├── channel/
@@ -70,7 +70,7 @@ youtube-recommander/
 │   └── IdGenerator.java       # Générateur d'identifiants uniques
 │
 └── youtube.java               # Classe principale avec l'interface utilisateur
-
+```
 ##🔧 Prérequis
 
     Java JDK : Version 8 ou supérieure
